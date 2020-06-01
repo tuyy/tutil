@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
+
 import pytest
 import functools
 
 from tutil.functional import *
+
 
 def test_curry():
     def curry(f):
@@ -15,6 +17,7 @@ def test_curry():
         return a + b + c
     add5 = curry(add)(5)
     assert add5(5, 3) == 13
+
 
 def test_curry2():
     @functools.partial
@@ -33,12 +36,13 @@ def test_curry2():
     third = reduce(lambda a, b: a + b)
     assert 6 == third([1, 2, 3])
 
-    assert 6 ==  go([1, 2, 3, 4, 5],
-                    map(lambda v: v),
-                    take(3),
-                    sum)
+    assert 6 == go([1, 2, 3, 4, 5],
+                   map(lambda v: v),
+                   take(3),
+                   sum)
 
-def test_example1():
+
+def test_old_and_new():
     arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     length = 3
 
@@ -55,20 +59,21 @@ def test_example1():
 
     def calc_new(arr, length):
         return reduce(lambda a, b: a + b, 0,
-               take(length,
-               map(lambda v : v * v,
-               filter(lambda v : v % 2, arr))))
+                      take(length,
+                           map(lambda v: v * v,
+                               filter(lambda v: v % 2, arr))))
 
     assert calc_old(arr, length) == calc_new(arr, length)
 
+
 def test_foreach():
     arr = [1, 2, 3, 4, 5]
-    expected = []
+    rz, expected = [], []
+
     def for_old(arr):
         for v in arr:
             expected.append(v + 10)
 
-    rz = []
     def for_new(arr):
         def f(v):
             rz.append(v)
@@ -76,18 +81,22 @@ def test_foreach():
 
     assert for_old(arr) == for_new(arr)
 
+
 def test_reduce_with_two_args():
     expected = reduce(lambda a, b: a + b, 0, [1, 2, 3, 4, 5])
     rz = reduce(lambda a, b: a + b, [1, 2, 3, 4, 5])
     assert expected == rz
 
+
 def test_map():
     rz = list(map(lambda v: v + 1, [1, 2, 3]))
     assert [2, 3, 4] == rz
 
+
 def test_sum():
     rz = sum([1, 2, 3])
     assert 6 == rz
+
 
 def test_reversed():
     rz = go(range(10),
@@ -98,10 +107,12 @@ def test_reversed():
             list)
     assert [10] == rz
 
+
 def test_find():
     rz = go([1, 2, 3, 4, 5],
             find(lambda v: v == 3))
     assert (2, 3) == rz
+
 
 def test_reject():
     rz = go([3, 4, 5],
