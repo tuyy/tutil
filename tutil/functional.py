@@ -2,15 +2,12 @@
 
 import sys
 import functools
+import inspect
 
-py_version = sys.version[0]
 if sys.version[0:3] == '2.7':
     from collections import Iterable
-    import funcsigs
-    inspect = funcsigs
 else:
     from collections.abc import Iterable
-    import inspect
 
 def is_number(v):
     try:
@@ -24,7 +21,7 @@ def iterable(obj):
     return isinstance(obj, Iterable)
 
 def curry(f):
-    args_cnt = len(inspect.signature(f).parameters)
+    args_cnt = len(inspect.getargspec(f).args)
     default_args_cnt = len(f.__defaults__) if f.__defaults__ else 0
 
     def curried(first, *args):
