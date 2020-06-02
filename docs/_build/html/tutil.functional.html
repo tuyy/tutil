@@ -30,8 +30,82 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="tutil-functional-module">
-<h1>tutil.functional module<a class="headerlink" href="#tutil-functional-module" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-tutil.functional">
+<span id="tutil-functional-module"></span><h1>tutil.functional module<a class="headerlink" href="#module-tutil.functional" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tutil-functional">
+<h2>tutil.functional<a class="headerlink" href="#tutil-functional" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>is_number, iterable, curry</p></li>
+<li><p>filter, map, reduce, reject, find, take, for_each, go</p></li>
+</ul>
+<p>copyright: (c) 2020 tuyy
+license: MIT, see LICENSE for more details.</p>
+<dl class="py function">
+<dt id="tutil.functional.curry">
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">curry</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.curry" title="Permalink to this definition">¶</a></dt>
+<dd><p>입력값 f를 curry하여 사용하기 위한 decorate 함수</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tutil.functional.filter">
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">first</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.filter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="tutil.functional.find">
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">first</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.find" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="tutil.functional.for_each">
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">for_each</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">first</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.for_each" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="tutil.functional.go">
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">go</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.go" title="Permalink to this definition">¶</a></dt>
+<dd><p>functional 함수를 우아하게 사용할 수 있다.
+go([1, 2, 3, 4],</p>
+<blockquote>
+<div><p>map(lambda v: v**v),
+filter(lambda v: v//2),
+reduce(lambda a, b: a + b))</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tutil.functional.is_number">
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">is_number</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">v</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.is_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>입력값 v 가 int형 변환이 가능하면 True, 아니면 False</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tutil.functional.iterable">
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">iterable</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">v</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.iterable" title="Permalink to this definition">¶</a></dt>
+<dd><p>입력값 v 가 iterable이면 True, 아니면 False</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="tutil.functional.map">
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">first</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="tutil.functional.reduce">
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">reduce</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">first</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.reduce" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="tutil.functional.reject">
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">reject</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">first</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.reject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="tutil.functional.take">
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">take</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">first</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.take" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 </div>
 
 
