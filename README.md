@@ -1,4 +1,9 @@
 # tutil
 python utils for tuyy
 
-https://pypi.org/project/tutil/
+## usage
+* ```from tutil.functional import *```
+* ```from tutil.dateutil import *```
+
+## document
+https://tuyy.github.io/tutil/_build/html/index.html
