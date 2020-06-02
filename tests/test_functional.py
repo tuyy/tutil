@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
 
+"""test tutil.functional
 
-import pytest
+copyright: (c) 2020 tuyy
+license: MIT, see LICENSE for more details.
+"""
+
 import functools
 
 from tutil.functional import *
@@ -11,10 +15,12 @@ def test_curry():
     def curry(f):
         def curried(first, *args):
             return lambda *args: f(first, *args)
+
         return curried
 
     def add(a, b, c):
         return a + b + c
+
     add5 = curry(add)(5)
     assert add5(5, 3) == 13
 
@@ -36,34 +42,32 @@ def test_curry2():
     third = reduce(lambda a, b: a + b)
     assert 6 == third([1, 2, 3])
 
-    assert 6 == go([1, 2, 3, 4, 5],
-                   map(lambda v: v),
-                   take(3),
-                   sum)
+    assert 6 == go([1, 2, 3, 4, 5], t_map(lambda v: v), take(3), sum)
 
 
 def test_old_and_new():
     arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    length = 3
+    size = 3
 
-    def calc_old(arr, length):
+    def calc_old(arr, size):
         rz = 0
         for v in arr:
             if v % 2:
-                v = v*v
+                v = v * v
                 rz += v
-                length -= 1
-                if length == 0:
+                size -= 1
+                if size == 0:
                     break
         return rz
 
-    def calc_new(arr, length):
-        return reduce(lambda a, b: a + b, 0,
-                      take(length,
-                           map(lambda v: v * v,
-                               filter(lambda v: v % 2, arr))))
+    def calc_new(it, size):
+        return reduce(
+            lambda a, b: a + b,
+            0,
+            take(size, t_map(lambda v: v * v, t_filter(lambda v: v % 2, it))),
+        )
 
-    assert calc_old(arr, length) == calc_new(arr, length)
+    assert calc_old(arr, size) == calc_new(arr, size)
 
 
 def test_foreach():
@@ -77,6 +81,7 @@ def test_foreach():
     def for_new(arr):
         def f(v):
             rz.append(v)
+
         for_each(f, arr)
 
     assert for_old(arr) == for_new(arr)
@@ -89,7 +94,7 @@ def test_reduce_with_two_args():
 
 
 def test_map():
-    rz = list(map(lambda v: v + 1, [1, 2, 3]))
+    rz = list(t_map(lambda v: v + 1, [1, 2, 3]))
     assert [2, 3, 4] == rz
 
 
@@ -99,24 +104,15 @@ def test_sum():
 
 
 def test_reversed():
-    rz = go(range(10),
-            map(lambda v: v + 1),
-            list,
-            reversed,
-            take(1),
-            list)
+    rz = go(range(10), t_map(lambda v: v + 1), list, reversed, take(1), list)
     assert [10] == rz
 
 
 def test_find():
-    rz = go([1, 2, 3, 4, 5],
-            find(lambda v: v == 3))
+    rz = go([1, 2, 3, 4, 5], find(lambda v: v == 3))
     assert (2, 3) == rz
 
 
 def test_reject():
-    rz = go([3, 4, 5],
-            reject(lambda v: v//5),
-            take(1),
-            list)
+    rz = go([3, 4, 5], reject(lambda v: v // 5), take(1), list)
     assert [3] == rz

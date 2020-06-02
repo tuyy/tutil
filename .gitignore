@@ -5,6 +5,7 @@ __init__.pyc
 .tox
 .pytest_cache
 .python-version
+.mypy_cache
 build
 dist
 tutil.egg-info
