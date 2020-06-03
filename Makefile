@@ -1,6 +1,6 @@
 .PHONY: html pip_install typehint test lint checklist autoformatting upload_py2 upload_py3
 
-TUTIL_VERSION := 0.0.4
+TUTIL_VERSION := 0.0.5
 PYENV_PYTHON2_VENV := functional2
 PYENV_PYTHON3_VENV := functional3
 

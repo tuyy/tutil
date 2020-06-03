@@ -43,3 +43,12 @@ def test_DateRangeIterator_invalid_dates():
 
     with raises(ValueError):
         date_iterator.end_date = date(2020, 5, 23)
+
+
+def test_DateRangeSequence():
+    result = go(
+        DateRangeSequence(date(2020, 5, 24), date(2020, 5, 28), 2),
+        t_map(lambda d: str(d)),
+        list,
+    )
+    assert ["2020-05-24", "2020-05-26", "2020-05-28"] == result
