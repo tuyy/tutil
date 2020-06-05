@@ -47,6 +47,7 @@ def curry(func):
     args_cnt = len(inspect.getfullargspec(func).args)
     default_args_cnt = len(func.__defaults__) if func.__defaults__ else 0
 
+    @functools.wraps(func)
     def curried(first, *args):
         if args_cnt <= len(args) + default_args_cnt + 1:
             if iterable(args[len(args) - 1]):

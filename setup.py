@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="tutil",
-    version="0.0.5",
+    version="0.0.6",
     author="tuyy",
     author_email="whwkfyd91@naver.com",
     description="utils for tuyy",

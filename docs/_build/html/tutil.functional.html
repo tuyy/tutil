@@ -48,13 +48,17 @@ license: MIT, see LICENSE for more details.</p>
 
 <dl class="py function">
 <dt id="tutil.functional.find">
-<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">first</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.find" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="n">iterator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>it에 f가 참인 index와 값을 반환
+&gt;&gt;&gt; find(lambda v: v//2, [10, 20, 30, 40])
+(0, 10)</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="tutil.functional.for_each">
-<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">for_each</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">first</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.for_each" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">for_each</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="n">iterator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.for_each" title="Permalink to this definition">¶</a></dt>
+<dd><p>일반적인 for_each와 비슷</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="tutil.functional.go">
@@ -83,28 +87,33 @@ sum)</p>
 
 <dl class="py function">
 <dt id="tutil.functional.reduce">
-<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">reduce</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">first</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.reduce" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">reduce</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="n">acc</span></em>, <em class="sig-param"><span class="n">iterator</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.reduce" title="Permalink to this definition">¶</a></dt>
+<dd><p>일반적인 reduce와 비슷</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="tutil.functional.reject">
-<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">reject</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">first</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.reject" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">reject</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="n">iterator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.reject" title="Permalink to this definition">¶</a></dt>
+<dd><p>filter 함수와 반대 결과인 경우 값 반환</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="tutil.functional.t_filter">
-<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">t_filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">first</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.t_filter" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">t_filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="n">iterator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.t_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>일반적인 filter와 비슷</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="tutil.functional.t_map">
-<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">t_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">first</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.t_map" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">t_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="n">iterator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.t_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>일반적인 map과 비슷</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="tutil.functional.take">
-<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">take</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">first</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.take" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">tutil.functional.</code><code class="sig-name descname">take</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">length</span></em>, <em class="sig-param"><span class="n">iterator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tutil.functional.take" title="Permalink to this definition">¶</a></dt>
+<dd><p>입력값 length 번만 순회하여 값 반환</p>
+</dd></dl>
 
 </div>
 </div>
